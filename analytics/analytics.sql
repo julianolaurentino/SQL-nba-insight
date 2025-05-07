@@ -13,4 +13,10 @@ ORDER BY game_date DESC
 LIMIT 100
 
 
-
+--Encontrar todos os jogadores de um time específico
+SELECT
+	CONCAT(cpi.first_name,' ', cpi.last_name) AS Fullname
+	,t.full_name as Teamname
+FROM common_player_info cpi 
+INNER JOIN team t ON cpi.team_id = t.id
+WHERE t.full_name = 'Boston Celtics'
