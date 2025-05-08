@@ -10,8 +10,7 @@ SELECT
 FROM game
 WHERE game_date BETWEEN '2023-01-01' AND '2024-01-01'
 ORDER BY game_date DESC
-LIMIT 100
-
+LIMIT 10;
 
 --Encontrar todos os jogadores de um time específico
 SELECT
@@ -19,4 +18,26 @@ SELECT
 	,t.full_name as Teamname
 FROM common_player_info cpi 
 INNER JOIN team t ON cpi.team_id = t.id
-WHERE t.full_name = 'Boston Celtics'
+WHERE t.full_name = 'Boston Celtics';
+
+--numeros de jogos por temporada
+SELECT  
+	season_id 
+	,COUNT(*) AS total_games
+FROM GAME
+GROUP BY season_id 
+ORDER BY season_id DESC; 
+
+--Calcular a média de pontos por jogo de um tme específico
+SELECT
+	t.full_name  AS Team
+	,AVG(g.pts_away)
+	,AVG(g.pts_home)
+	,g.game_id
+FROM game g
+INNER  JOIN team t ON t.id = g.team_id_home  --OR cpi.team_id = g.team_id_away
+
+
+SELECT *
+FROM other_stats os 
+
