@@ -74,3 +74,25 @@ SELECT
 FROM game g 
 GROUP BY g.season_id 
 ORDER BY g.season_id DESC;
+
+--Encontrar os 5 times que mais pontuaram jogando fora de casa
+WITH OverTeams AS(	
+	SELECT 
+		season_id
+		,team_name_away
+		,COUNT(pts_away) AS TotalPtsAway
+		,RANK() OVER PARTITION BY team_name_away ORDER BY COUNT(pts_away) AS rank
+	FROM game
+)
+SELECT *
+FROM OverTeams
+WHERE rank <= 5
+ORDER BY team_name_away
+
+
+SELECT 
+	season_id
+	,team_name_away
+	,COUNT(pts_away) AS TotalPtsAway
+	,RANK() OVER PARTITION BY team_name_away ORDER BY COUNT(pts_away) AS rank
+FROM game
