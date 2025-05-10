@@ -28,16 +28,14 @@ FROM GAME
 GROUP BY season_id 
 ORDER BY season_id DESC; 
 
---Calcular a média de pontos por jogo de um tme específico
+--Calcular a média de pontos por um time da casa específico
 SELECT
-	t.full_name  AS Team
+	td.abbreviation AS Team
 	,AVG(g.pts_away)
 	,AVG(g.pts_home)
-	,g.game_id
 FROM game g
-INNER  JOIN team t ON t.id = g.team_id_home  --OR cpi.team_id = g.team_id_away
+INNER JOIN team_details td ON g.team_id_away = td.team_id OR g.team_id_away = td.team_id 
+WHERE td.abbreviation = 'BOS'
 
 
-SELECT *
-FROM other_stats os 
 
