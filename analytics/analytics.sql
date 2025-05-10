@@ -74,6 +74,3 @@ SELECT
 FROM game g 
 GROUP BY g.season_id 
 ORDER BY g.season_id DESC;
-
-
-
