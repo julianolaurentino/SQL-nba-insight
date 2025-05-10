@@ -67,5 +67,13 @@ FROM ranked_teams
 WHERE rank = 1
 ORDER BY season_id DESC;
 
+--Analisar a diferença média de pontos entre times em jogos
+SELECT
+	g.season_id
+	,AVG(ABS(g.pts_home - g.pts_away)) avg_point_difference
+FROM game g 
+GROUP BY g.season_id 
+ORDER BY g.season_id DESC;
+
 
 
