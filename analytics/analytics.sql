@@ -35,7 +35,37 @@ SELECT
 	,AVG(g.pts_home)
 FROM game g
 INNER JOIN team_details td ON g.team_id_away = td.team_id OR g.team_id_away = td.team_id 
-WHERE td.abbreviation = 'BOS'
+WHERE td.abbreviation = 'BOS';
+
+--Listar os times que marcaram mais de 120 pontos em um jogo
+SELECT
+	pts_home
+	,team_abbreviation_home 
+	,game_date 
+FROM game  
+WHERE pts_home > 120
+UNION 
+SELECT
+	pts_away 
+	,team_abbreviation_away 
+	,game_date 
+FROM game  
+WHERE pts_away  > 120
+ORDER BY game_date DESC;
+
+--Encontrar o time com mais pontos em um único jogo por temporada jogando em casa
+WITH ranked_teams AS (
+	SELECT
+		g.team_name_home 
+		,g.pts_home
+		,g.season_id
+		,ROW_NUMBER() OVER (PARTITION BY g.season_id ORDER BY g.pts_home DESC) AS rank
+	FROM game g 
+)
+SELECT *
+FROM ranked_teams
+WHERE rank = 1
+ORDER BY season_id DESC;
 
 
 
