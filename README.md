@@ -1,7 +1,7 @@
 # SQL-nba-analytics
 Visão Geral
 
-Este README oferece uma visão geral dos exercícios de SQL criados para praticar consultas no conjunto de dados de basquete da NBA (disponível no Kaggle). O conjunto de dados, armazenado em um banco SQLite, contém informações sobre mais de 64.000 jogos, 4.800 jogadores e 30 times, com tabelas como game, player, team e box_score. Os exercícios variam de iniciante a avançado, ajudando os usuários a praticar habilidades de SQL, como filtragem, agregação, junções e funções de janela.
+Este README oferece uma visão geral dos exercícios de SQL criados para praticar consultas no conjunto de dados de basquete da NBA (disponível no [Kaggle](https://www.kaggle.com/datasets/wyattowalsh/basketball)). O conjunto de dados, armazenado em um banco SQLite, contém informações sobre mais de 64.000 jogos, 4.800 jogadores e 30 times, com tabelas como game, player, team e box_score. Os exercícios variam de iniciante a avançado, ajudando os usuários a praticar habilidades de SQL, como filtragem, agregação, junções e funções de janela.
 
 ## Iniciante
 
