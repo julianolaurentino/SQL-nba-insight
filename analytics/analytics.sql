@@ -81,7 +81,7 @@ WITH OverTeams AS(
 		season_id
 		,team_name_away
 		,COUNT(pts_away) AS TotalPtsAway
-		,RANK() OVER PARTITION BY team_name_away ORDER BY COUNT(pts_away) AS rank
+		,RANK() OVER (PARTITION BY team_name_away ORDER BY COUNT(pts_away)) AS rank
 	FROM game
 )
 SELECT *
@@ -94,5 +94,7 @@ SELECT
 	season_id
 	,team_name_away
 	,COUNT(pts_away) AS TotalPtsAway
-	,RANK() OVER PARTITION BY team_name_away ORDER BY COUNT(pts_away) AS rank
+	,RANK() OVER (PARTITION BY team_name_away ORDER BY COUNT(pts_away)) AS rank
 FROM game
+
+
