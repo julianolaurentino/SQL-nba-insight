@@ -93,8 +93,8 @@ ORDER BY team_name_away
 SELECT 
 	season_id
 	,team_name_away
-	,COUNT(pts_away) AS TotalPtsAway
-	,RANK() OVER (PARTITION BY team_name_away ORDER BY COUNT(pts_away)) AS rank
+	,pts_away AS TotalPtsAway
+	,RANK() OVER (PARTITION BY team_name_away ORDER BY pts_away) AS rank
 FROM game
 
 --total de pontos apenas pares para times jogando em casa por temporadas
