@@ -105,4 +105,3 @@ SELECT
 FROM game
 WHERE pts_home % 2 = 0
 
-
