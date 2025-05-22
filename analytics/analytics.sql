@@ -122,3 +122,10 @@ JOIN team t
 WHERE t.full_name = 'Boston Celtics'
 ORDER BY g.game_date DESC
 LIMIT 100;
+
+--Listar jogadores ativos em uma temporada específica
+SELECT DISTINCT 
+	p.full_name 
+FROM player p
+WHERE p.is_active = 1
+
