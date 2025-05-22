@@ -122,8 +122,3 @@ JOIN team t
 WHERE t.full_name = 'Boston Celtics'
 ORDER BY g.game_date DESC
 LIMIT 100;
-
-
-
-
-
