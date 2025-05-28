@@ -123,12 +123,12 @@ WHERE t.full_name = 'Boston Celtics'
 ORDER BY g.game_date DESC
 LIMIT 100;
 
---Listar jogadores ativos em uma temporada específica
+--Listar jogadores ativos
 SELECT DISTINCT 
 	p.full_name 
 FROM player p
 WHERE p.is_active = 1
-
+ORDER BY p.full_name;
 
 
 
