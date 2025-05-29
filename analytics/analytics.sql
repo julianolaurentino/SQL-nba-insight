@@ -131,4 +131,18 @@ WHERE p.is_active = 1
 ORDER BY p.full_name;
 
 
+--Calcular o total de assistências por time em uma temporada
+SELECT
+	t.full_name AS team_name
+	,g.ast_away AS total_ast_away
+	,g.ast_home AS total_ast_home
+FROM team t
+INNER JOIN game g ON t.id = g.team_id_away 
+OR t.id = g.team_id_home
+WHERE g.season_id = '22020'
+GROUP BY t.full_name
+ORDER BY g.ast_home DESC; --pode ser ordenado como ASC ou DESC
+
+
+
 
