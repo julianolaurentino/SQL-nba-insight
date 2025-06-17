@@ -107,11 +107,11 @@ WHERE pts_home % 2 = 0
 
 --Listar jogos de um time específico com resultado (vitória ou derrota)
 SELECT
-	t.full_name AS team_name,
-	strftime('%d/%m/%Y', g.game_date) AS game_date,
-	g.pts_home,
-	g.pts_away,
-	CASE
+	t.full_name AS team_name
+	,strftime('%d/%m/%Y', g.game_date) AS game_date
+	,g.pts_home
+	,g.pts_away
+	,CASE
 		WHEN t.id = g.team_id_home AND g.pts_home > g.pts_away THEN 'Vitória'
 		WHEN t.id = g.team_id_away AND g.pts_away > g.pts_home THEN 'Vitória'
 		ELSE 'Derrota'
@@ -142,7 +142,4 @@ OR t.id = g.team_id_home
 WHERE g.season_id = '22020'
 GROUP BY t.full_name
 ORDER BY g.ast_home DESC; --pode ser ordenado como ASC ou DESC
-
-
-
 
