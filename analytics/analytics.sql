@@ -125,7 +125,8 @@ LIMIT 100;
 
 --Listar jogadores ativos
 SELECT DISTINCT 
-	p.full_name 
+	p.full_name
+	,p.is_active 
 FROM player p
 WHERE p.is_active = 1
 ORDER BY p.full_name;
@@ -142,4 +143,12 @@ OR t.id = g.team_id_home
 WHERE g.season_id = '22020'
 GROUP BY t.full_name
 ORDER BY g.ast_home DESC; --pode ser ordenado como ASC ou DESC
+
+SELECT
+	g.team_name_home
+	,g.team_name_away
+	,g.fga_home 
+	,g.fga_away
+FROM game g 
+WHERE g.team_name_home OR g.team_name_away = 'Boston Celtics'
 
